@@ -1,7 +1,9 @@
 
 # kotlin-expression-builder
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Burnett01/paypal-basket/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Burnett01/paypal-basket/master/LICENSE) 
+[![Build Status](https://travis-ci.org/Burnett01/kotlin-expression-builder.svg?branch=master)](https://travis-ci.org/Burnett01/paypal-basket) [![](https://jitpack.io/v/burnett01/kotlin-expression-builder.svg)](https://jitpack.io/#burnett01/kotlin-expression-builder)
+
 
 <img src="http://i.imgur.com/I0DES9A.png" align="right"/>
 
@@ -43,9 +45,9 @@ class Expression
 internal val result: StringBuilder
 private fun append(ex: String?)
 
-fun markStart() //=> '^'
-fun markEnd()   //=> '$'
-fun markOr()    //=> '|'
+fun markStart() /* '^'  */
+fun markEnd()   /* '$'  */
+fun markOr()    /* '|'  */
 
 /* Quantity (Q)
  * Q.ZERO_OR_ONE  = '?'
@@ -64,15 +66,15 @@ fun quantity(quant: Q = Q.ZERO_OR_ONE)
  */
 fun range(min: Any, max: Any, delim: Char = '-')
 
-fun exact(times: Int)       //=> {times,times}
-fun setChar(char: Char)     //=> char
-fun setString(str: String)  //=> str
-fun setLiteral(lit: Char)   //=> \lit
-fun setDigit()              //=> \d
-fun setWord()               //=> \w
+fun exact(times: Int)       /* {times,times} */
+fun setChar(char: Char)     /* char          */
+fun setString(str: String)  /* str           */
+fun setLiteral(lit: Char)   /* \lit          */
+fun setDigit()              /* \d            */
+fun setWord()               /* \w            */
 
-fun startMatch()            //=> [
-fun endMatch()              //=> ]
+fun startMatch()            /* [             */
+fun endMatch()              /* ]             */
 
 /* Start Capture Group
  * 0 = capture -> (
