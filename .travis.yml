@@ -8,6 +8,9 @@ before_install:
 script:
   - ./gradlew clean build -i --continue
 
+# Without sudo and all that crap above, travis can't build gradle deps.
+# Found a solution:
+# -> Credits: https://stackoverflow.com/a/38035274/1380486
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
