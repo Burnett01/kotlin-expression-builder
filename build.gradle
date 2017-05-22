@@ -1,0 +1,38 @@
+buildscript {
+    ext.kotlin_version = '1.0.4'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: "kotlin"
+
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/kotlin/com/github/burnett01/expression'
+    test.kotlin.srcDirs += 'src/test/kotlin/com/github/burnett01/expression'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testCompile 'io.kotlintest:kotlintest:2.0.2'
+}
+
+// Credits: https://github.com/jitpack/gradle-simple/blob/master/build.gradle
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
