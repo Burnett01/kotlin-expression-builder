@@ -42,9 +42,6 @@ Features:
 ```kotlin
 class Expression
 
-internal val result: StringBuilder
-private fun append(ex: String?)
-
 fun markStart() /* '^'  */
 fun markEnd()   /* '$'  */
 fun markOr()    /* '|'  */
@@ -94,8 +91,6 @@ fun compile(): Regex
 ```kotlin
 
 class ExpressionBuilder
-
-internal val expression: Expression?
 
 fun start()
 fun end()
