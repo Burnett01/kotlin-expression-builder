@@ -2,7 +2,7 @@
 # kotlin-expression-builder
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Burnett01/paypal-basket/master/LICENSE) 
-[![Build Status](https://travis-ci.org/Burnett01/kotlin-expression-builder.svg?branch=master)](https://travis-ci.org/Burnett01/paypal-basket) [![](https://jitpack.io/v/burnett01/kotlin-expression-builder.svg)](https://jitpack.io/#burnett01/kotlin-expression-builder)
+[![Build Status](https://travis-ci.org/Burnett01/kotlin-expression-builder.svg?branch=master)](https://travis-ci.org/Burnett01/kotlin-expression-builder) [![](https://jitpack.io/v/burnett01/kotlin-expression-builder.svg)](https://jitpack.io/#burnett01/kotlin-expression-builder)
 
 
 <img src="http://i.imgur.com/I0DES9A.png" align="right"/>
