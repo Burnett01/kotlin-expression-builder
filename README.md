@@ -40,7 +40,7 @@ Features:
 ### Expression:
 
 ```kotlin
-class Expression
+class Expression { }
 
 fun markStart() /* '^'  */
 fun markEnd()   /* '$'  */
@@ -90,7 +90,7 @@ fun compile(): Regex
 
 ```kotlin
 
-class ExpressionBuilder
+class ExpressionBuilder { }
 
 fun start()
 fun end()
