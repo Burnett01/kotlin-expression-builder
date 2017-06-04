@@ -42,9 +42,9 @@ Features:
 ```kotlin
 class Expression { }
 
-fun markStart() /* '^'  */
-fun markEnd()   /* '$'  */
-fun markOr()    /* '|'  */
+fun markStart() = // '^'
+fun markEnd() =   // '$'
+fun markOr() =    // '|'
 
 /* Quantity (Q)
  * Q.ZERO_OR_ONE  = '?'
@@ -63,22 +63,22 @@ fun quantity(quant: Q = Q.ZERO_OR_ONE)
  */
 fun range(min: Any, max: Any, delim: Char = '-')
 
-fun exact(times: Int)       /* {times,times} */
-fun setChar(char: Char)     /* char          */
-fun setString(str: String)  /* str           */
-fun setLiteral(lit: Char)   /* \lit          */
-fun setDigit()              /* \d            */
-fun setWord()               /* \w            */
+fun exact(times: Int) =      // {times,times}
+fun setChar(char: Char) =    // char
+fun setString(str: String) = // str
+fun setLiteral(lit: Char) =  // \lit
+fun setDigit() =             // \d
+fun setWord() =              // \w
 
-fun startMatch()            /* [             */
-fun endMatch()              /* ]             */
+fun startMatch() =           // [
+fun endMatch() =             // ]
 
 /* Start Capture Group
  * 0 = capture -> (
  * 1 = no capture -> (?:
  */
 fun startGroup(type: Int)   
-fun endGroup() //=> )
+fun endGroup() = // )
 
 fun debug()
 fun compile(): Regex
@@ -188,6 +188,26 @@ dependencies {
     compile 'com.github.burnett01:kotlin-expression-builder:0.5'
 }
 ```
+
+Maven dependency:
+
+```kotlin
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependency>
+    <groupId>com.github.Burnett01</groupId>
+    <artifactId>kotlin-expression-builder</artifactId>
+    <version>0.5</version>
+</dependency>
+```
+
+Check [here](https://jitpack.io/#Burnett01/kotlin-expression-builder/) for more.
+
 
 ---
 
