@@ -72,11 +72,11 @@ class ExpressionBuilderTest : StringSpec({
         val builderB = expression({
 
             capture {
-                digit({ exact(2) })
+                digit { exact(2) }
                 char('.')
-                digit({ exact(2) })
+                digit { exact(2) }
                 char('.')
-                digit({ exact(4) })
+                digit { exact(4) }
             }
         
         })
