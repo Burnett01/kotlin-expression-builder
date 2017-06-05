@@ -23,7 +23,7 @@ Features:
 * [API Reference](#api-reference)
   * [Expression](#expression)
   * [ExpessionBuilder](#expressionbuilder)
-* [Usage](#usage)
+* [Usage (ExpressionBuilder)](#usage-expressionbuilder)
 * [Example](../master/contrib)
 * [Setup / Install](#setup-install)
 * [Build](#build)
@@ -109,15 +109,17 @@ fun match( aggr: () -> Unit = {} )
 fun nocapture( aggr: () -> Unit )
 fun capture( aggr: () -> Unit )
 
-  
-fun expression( entity: ExpressionBuilder.() -> Unit ): Expression?
+fun expression( 
+    entity: ExpressionBuilder.() -> Unit,
+    options: Set<RegexOption> = emptySet()
+): Expression?
 ```
 
 ---
 
-## Usage:
+## Usage (ExpressionBuilder):
 
-Demo 1:
+**Demo 1:**
 
 ```kotlin
 import com.github.burnett01.expression.*
@@ -145,7 +147,7 @@ class main {
 }
 ```
 
-Demo 2:
+**Demo 2:**
 
 ```kotlin
 import com.github.burnett01.expression.*
@@ -160,6 +162,43 @@ class main {
             literal('%')
         }
     }
+
+    println(myExpr.compile().find(txt)?.value)
+
+    myExpr!!.debug()
+
+}
+```
+
+**Passing options to Regex class:**
+
+As of version 0.6, you may forward <RegexOption>'s to the interal <Regex> class.
+
+```kotlin
+import com.github.burnett01.expression.*
+
+class main {
+
+    /* Available options (JVM):
+        IGNORE_CASE = Enables case-insensitive matching.
+        MULTILINE = Enables multiline mode.
+        LITERAL = Enables literal parsing of the pattern.
+        UNIX_LINES = In this mode, only the '\n' is recognized as a line terminator.
+        COMMENTS = Permits whitespace and comments in pattern.
+        DOT_MATCHES_ALL = Enables the mode, when the expression . matches any character,
+        including a line terminator.
+        CANON_EQ = Enables equivalence by canonical decomposition.
+    */
+    val options: Set<RegexOption> = setOf(RegexOption.IGNORE_CASE)
+
+    val txt: String = "HElLo CaTCh mE!%"
+  
+    val myExpr: Expression? = expression({
+        capture {
+            string("Hello catch me!")
+            literal('%')
+        }
+    }, options)
 
     println(myExpr.compile().find(txt)?.value)
 
@@ -185,7 +224,7 @@ allprojects {
 }
 
 dependencies {
-    compile 'com.github.burnett01:kotlin-expression-builder:0.5'
+    compile 'com.github.burnett01:kotlin-expression-builder:0.6'
 }
 ```
 
@@ -202,7 +241,7 @@ Maven dependency:
 <dependency>
     <groupId>com.github.Burnett01</groupId>
     <artifactId>kotlin-expression-builder</artifactId>
-    <version>0.5</version>
+    <version>0.6</version>
 </dependency>
 ```
 
