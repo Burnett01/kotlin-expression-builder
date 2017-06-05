@@ -36,7 +36,7 @@ class ExpressionBuilderTest : StringSpec({
 
         val testPattern = "^$|{3,3}[0-9]{0,9}\\%\\d\\w[test](test2)(?:test3)A + * ?"
 
-        val builder = expression({
+        val builderA = expression({
 
             start()
             end()
@@ -60,16 +60,16 @@ class ExpressionBuilderTest : StringSpec({
             
         })
 
-        builder?.compile()?.pattern.toString() should include(testPattern)
+        builderA?.compile()?.pattern.toString() should include(testPattern)
     }
 
     /*         RUNTIME TESTS          */
 
     "pattern should match original pattern" {
 
-        val origPattern = "(\\d{2,2}.\\d{2,2}.\\d{4,4})"
+        val origPatternB = "(\\d{2,2}.\\d{2,2}.\\d{4,4})"
 
-        val builder = expression({
+        val builderB = expression({
 
             capture {
                 digit({ exact(2) })
@@ -81,7 +81,27 @@ class ExpressionBuilderTest : StringSpec({
         
         })
 
-        builder?.compile()?.pattern.toString() should startWith(origPattern)
+        builderB?.compile()?.pattern.toString() should startWith(origPatternB)
+    }
+
+    /*         RUNTIME TESTS (RegexOption)         */
+
+    "pattern should match original pattern (RegexOption)" {
+
+        val opts: Set<RegexOption> = setOf( RegexOption.IGNORE_CASE )
+
+        val origPatternC = "(Catch me\\!)"
+
+        val builderC = expression({
+
+            capture {
+                string("Catch me")
+                literal('!')
+            }
+        
+        }, opts)
+
+        builderC?.compile()?.pattern.toString() should startWith(origPatternC)
     }
 
 })
