@@ -29,14 +29,29 @@ package com.github.burnett01.expression
  * @class: ExpressionBuilder
  */
 class ExpressionBuilder() {
-    constructor(entity: ExpressionBuilder.() -> Unit) : this() {
+
+    /**
+     * @property: opts | Regex options
+     */
+    internal var opts: Set<RegexOption> = emptySet()
+
+    /**
+     * @constructor
+     * @param: {ExpressionBuilder} entity | Self instance
+     * @param: {Set<RegexOption>} options | Regex options (optional)
+     */
+    constructor( 
+        entity: ExpressionBuilder.() -> Unit,
+        options: Set<RegexOption>
+    ) : this() {
         entity()
+        opts = options
     }
 
     /**
-     * @property: expression | Final expression
+     * @property: expr | Final expression
      */
-    internal val expression: Expression? = Expression()
+    internal val expression: Expression? = Expression(opts)
 
     /**
      * @function: start
@@ -145,14 +160,22 @@ class ExpressionBuilder() {
         expression!!.startGroup(0)
         aggr()
         expression.endGroup()
-  }
+    }
 
     /**
-     * @function: construct
+     * @function: boot
      */
-    fun construct(): Expression? = expression
+    fun boot(): Expression? = expression
 }
 
-fun expression( entity: ExpressionBuilder.() -> Unit ): Expression? {
-    return ExpressionBuilder(entity).construct()
+/**
+ * @function: expression
+ * @param {ExpressionBuilder} entity | ExpressionBuilder
+ * @param {Set<RegexOption>} options | Regex options
+ */
+fun expression( 
+    entity: ExpressionBuilder.() -> Unit,
+    options: Set<RegexOption> = emptySet()
+): Expression? {
+    return ExpressionBuilder(entity, options).boot()
 }
