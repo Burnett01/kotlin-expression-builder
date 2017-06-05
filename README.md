@@ -15,7 +15,9 @@ I'll be using this package in my upcoming HAFAS-parser project, in order to simp
 
 Features:
   * Easy Regex management
-  * Tests
+  * Usable as pure class (Expression)
+  * Usable as builder (ExpressionBuilder)
+  * Unit Tests
 
 ---
 
@@ -172,7 +174,7 @@ class main {
 
 **Passing options to Regex class:**
 
-As of version 0.6, you may forward <RegexOption>'s to the interal <Regex> class.
+As of version 0.6, you may forward ``RegexOption``'s to the internal ``Regex`` class.
 
 ```kotlin
 import com.github.burnett01.expression.*
@@ -267,17 +269,19 @@ Various tests are performed to make sure this package runs as smoothly as possib
 
 * src/test/kotlin/com/github/burnett01/expression/expressionTest.kt
 
-    `25 tests` | [Source](../master/src/test/kotlin/com/github/burnett01/expression/expressionTest.kt)
+    `28 tests` | [Source](../master/src/test/kotlin/com/github/burnett01/expression/expressionTest.kt)
 
 * src/test/kotlin/com/github/burnett01/expression/expression-builderTest.kt
 
-    `2 tests` | [Source](../master/src/test/kotlin/com/github/burnett01/expression/expression-builderTest.kt)
+    `3 tests` | [Source](../master/src/test/kotlin/com/github/burnett01/expression/expression-builderTest.kt)
 
 Output:   
 
-<img src="http://i.imgur.com/SOJbN61.png" />
+<img src="http://i.imgur.com/DZI3wC9.png" />
 
-<img src="http://i.imgur.com/lihoy5t.png" />
+<img src="http://i.imgur.com/cDUo7Au.png" />
+
+<img src="http://i.imgur.com/UcOORgP.png" />
 
 ### Gradle
 
