@@ -277,7 +277,7 @@ Various tests are performed to make sure this package runs as smoothly as possib
 
 Output:   
 
-<img src="http://i.imgur.com/DZI3wC9.png" />
+<img src="http://i.imgur.com/NDHTv1p.png" />
 
 <img src="http://i.imgur.com/cDUo7Au.png" />
 
