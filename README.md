@@ -133,11 +133,11 @@ class main {
 
     val myExpr: Expression? = expression {
         capture {
-            digit({ exact(2) })
+            digit { exact(2) }
             literal('.')
-            digit({ exact(2) })
+            digit { exact(2) }
             literal('.')
-            digit({ exact(4) })
+            digit { exact(4) }
         }
     }
 
