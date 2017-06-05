@@ -24,6 +24,10 @@
 
 package com.github.burnett01.expression
 
+import kotlin.text.Regex
+import kotlin.text.RegexOption
+import kotlin.collections.Set
+import kotlin.collections.emptySet
 
 /**
  * @class: Q <enum>
@@ -39,8 +43,9 @@ enum class Q {
 
 /**
  * @class: Expression
+ * @param: {Set<RegexOption>} op | Regex options (optional)
  */
-class Expression() {
+class Expression(internal val op: Set<RegexOption> = emptySet()) {
 
     /**
      * @property: result | Final expression
@@ -169,5 +174,5 @@ class Expression() {
     /**
      * @function: compile
      */
-    fun compile(): Regex = Regex(result.toString())
+    fun compile(): Regex = Regex(result.toString(), op)
 }
