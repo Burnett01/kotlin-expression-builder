@@ -27,12 +27,15 @@ package com.github.burnett01.expression
 import io.kotlintest.matchers.*
 import io.kotlintest.specs.StringSpec
 
-
 class ExpressionTest : StringSpec({
 
     val expression = Expression()
 
     /*         INTEGRITY TESTS          */
+    
+    "expression.op should be empty" {
+        expression.op should beEmpty()
+    }
 
     "expression.result should be of type <StringBuilder>" {
         expression.result should beOfType<StringBuilder>()
@@ -151,30 +154,56 @@ class ExpressionTest : StringSpec({
 
     val date: String = "20.05.2017"
 
-    val origPattern = "(\\d{2,2}.\\d{2,2}.\\d{4,4})"
-    val origVal = Regex(origPattern).find(date)!!.value
+    val origPatternA = "(\\d{2,2}.\\d{2,2}.\\d{4,4})"
+    val origValA = Regex(origPatternA).find(date)!!.value
     
-    val runtimeExpr = Expression()
+    val runtimeExprA = Expression()
 
-    runtimeExpr.startGroup(0)
-    runtimeExpr.setDigit()
-    runtimeExpr.exact(2)
-    runtimeExpr.setChar('.')
-    runtimeExpr.setDigit()
-    runtimeExpr.exact(2)
-    runtimeExpr.setChar('.')
-    runtimeExpr.setDigit()
-    runtimeExpr.exact(4)
-    runtimeExpr.endGroup()
+    runtimeExprA.startGroup(0)
+    runtimeExprA.setDigit()
+    runtimeExprA.exact(2)
+    runtimeExprA.setChar('.')
+    runtimeExprA.setDigit()
+    runtimeExprA.exact(2)
+    runtimeExprA.setChar('.')
+    runtimeExprA.setDigit()
+    runtimeExprA.exact(4)
+    runtimeExprA.endGroup()
 
-    "runtimeExpr.compile should compile and return pattern = '$origPattern'" {
-        runtimeExpr.compile()
-            .pattern.toString() should include(origPattern)
+    "runtimeExprA.compile should compile and return pattern = '$origPatternA'" {
+        runtimeExprA.compile()
+            .pattern.toString() should include(origPatternA)
     }
 
-    "runtimeExpr.compile.matchEntire().value should return origVal = '$date'" {
-        runtimeExpr.compile()
-            .matchEntire(date)?.value.toString() should include(origVal.toString())
+    "runtimeExprA.compile.matchEntire().value should return origValA = '$date'" {
+        runtimeExprA.compile()
+            .matchEntire(date)?.value.toString() should include(origValA.toString())
+    }
+
+    /*         RegexOption TESTS (IGNORE_CASE)          */
+
+    val opts: Set<RegexOption> = setOf( RegexOption.IGNORE_CASE )
+
+    val text: String = "CAtCh Me!"
+
+    val origPatternB = "(Catch me\\!)"
+    val origValB = Regex(origPatternB, opts).find(text)!!.value
+    
+    val runtimeExprB = Expression(opts)
+
+    runtimeExprB.startGroup(0)
+    runtimeExprB.setString("Catch me")
+    runtimeExprB.setLiteral('!')
+    runtimeExprB.endGroup()
+
+    "runtimeExprB.compile should compile and return pattern = '$origPatternB'" {
+        runtimeExprB.compile()
+            .pattern.toString() should include(origPatternB)
+    }
+
+    "runtimeExprB.compile.matchEntire().value should return origValB = '$text'" {
+        runtimeExprB.compile()
+            .matchEntire(text)?.value.toString() should include(origValB.toString())
     }
 
 })
