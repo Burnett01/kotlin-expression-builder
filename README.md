@@ -11,7 +11,7 @@ A fairly decent expression class and builder (DSL), written in Kotlin.
 
 This package will assist you in writing and managing your regular expressions (Regex).<br>
 
-I'll be using this package in my upcoming HAFAS-parser project, in order to simplify very complex regular expressions.
+I'll be using this package in my upcoming [HAFAS-parser](https://github.com/Burnett01/hafas-parser) project, in order to simplify very complex regular expressions.
 
 Features:
   * Easy Regex management
@@ -42,7 +42,7 @@ Features:
 ### Expression:
 
 ```kotlin
-class Expression { }
+class Expression( op: Set<RegexOption> )
 
 fun markStart() = // '^'
 fun markEnd() =   // '$'
@@ -182,14 +182,14 @@ import com.github.burnett01.expression.*
 class main {
 
     /* Available options (JVM):
-        IGNORE_CASE = Enables case-insensitive matching.
-        MULTILINE = Enables multiline mode.
-        LITERAL = Enables literal parsing of the pattern.
-        UNIX_LINES = In this mode, only the '\n' is recognized as a line terminator.
-        COMMENTS = Permits whitespace and comments in pattern.
-        DOT_MATCHES_ALL = Enables the mode, when the expression . matches any character,
-        including a line terminator.
-        CANON_EQ = Enables equivalence by canonical decomposition.
+    IGNORE_CASE = Enables case-insensitive matching.
+    MULTILINE = Enables multiline mode.
+    LITERAL = Enables literal parsing of the pattern.
+    UNIX_LINES = In this mode, only the '\n' is recognized as a line terminator.
+    COMMENTS = Permits whitespace and comments in pattern.
+    DOT_MATCHES_ALL = Enables the mode, when the expression . matches any character,
+    including a line terminator.
+    CANON_EQ = Enables equivalence by canonical decomposition.
     */
     val options: Set<RegexOption> = setOf(RegexOption.IGNORE_CASE)
 
