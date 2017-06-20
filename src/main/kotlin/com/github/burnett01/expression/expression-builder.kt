@@ -44,14 +44,16 @@ class ExpressionBuilder() {
         entity: ExpressionBuilder.() -> Unit,
         options: Set<RegexOption>
     ) : this() {
-        entity()
         opts = options
+        entity()
     }
 
     /**
-     * @property: expr | Final expression
+     * @property: expression | Final expression
      */
-    internal val expression: Expression? = Expression(opts)
+    internal val expression: Expression? by lazy {
+        Expression(opts)
+    }
 
     /**
      * @function: start
@@ -139,7 +141,7 @@ class ExpressionBuilder() {
     fun match( aggr: () -> Unit = {} ) {
         expression!!.startMatch()
         aggr()
-        expression.endMatch()
+        expression!!.endMatch()
     }
 
     /**
@@ -149,7 +151,7 @@ class ExpressionBuilder() {
     fun nocapture( aggr: () -> Unit ) {
         expression!!.startGroup(1)
         aggr()
-        expression.endGroup()
+        expression!!.endGroup()
     }
 
     /**
@@ -159,7 +161,7 @@ class ExpressionBuilder() {
     fun capture( aggr: () -> Unit ) {
         expression!!.startGroup(0)
         aggr()
-        expression.endGroup()
+        expression!!.endGroup()
     }
 
     /**
