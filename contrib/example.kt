@@ -29,7 +29,7 @@ class main {
     val date: String = "20.05.2017"
     val origExpr = Regex("(\\d{2}.\\d{2}.\\d{4})")
 
-    val myExpr: Expression? = expression {
+    val myExpr: Expression? = expression({
         capture {
             digit { exact(2) }
             literal('.')
@@ -37,11 +37,11 @@ class main {
             literal('.')
             digit { exact(4) }
         }
-    }
+    })
 
     println(origExpr.find(date)?.value)
-    println(myExpr.compile().find(date)?.value)
+    println(myExpr!!.compile().find(date)?.value)
 
-    myExpr!!.debug()
+    myExpr.debug()
 
 }

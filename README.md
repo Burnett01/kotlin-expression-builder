@@ -110,6 +110,7 @@ fun whitespace()
 fun match( aggr: () -> Unit = {} )
 fun nocapture( aggr: () -> Unit )
 fun capture( aggr: () -> Unit )
+fun compile(): Regex
 
 fun expression( 
     entity: ExpressionBuilder.() -> Unit,
@@ -142,9 +143,9 @@ class main {
     }
 
     println(origExpr.find(date)?.value)
-    println(myExpr.compile().find(date)?.value)
+    println(myExpr!!.compile().find(date)?.value)
 
-    myExpr!!.debug()
+    myExpr.debug()
 
 }
 ```
@@ -158,16 +159,16 @@ class main {
 
     val txt: String = "Hello catch me!%"
   
-    val myExpr: Expression? = expression {
+    val myExpr: Expression? = expression({
         capture {
             string("Hello catch me!")
             literal('%')
         }
-    }
+    })
 
-    println(myExpr.compile().find(txt)?.value)
+    println(myExpr!!.compile().find(txt)?.value)
 
-    myExpr!!.debug()
+    myExpr.debug()
 
 }
 ```
