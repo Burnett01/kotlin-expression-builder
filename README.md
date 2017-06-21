@@ -11,7 +11,7 @@ A fairly decent expression class and builder (DSL), written in Kotlin.
 
 This package will assist you in writing and managing your regular expressions (Regex).<br>
 
-I'll be using this package in my upcoming [HAFAS-parser](https://github.com/Burnett01/hafas-parser) project, in order to simplify very complex regular expressions.
+I'll be using this package in my upcoming [HAFAS-parser](https://github.com/Burnett01/hafas-parser) project, in order to simplify very complex regular expressions. Read more about it [on my blog](https://burnett01.blogspot.de/2017/06/developers-should-ease-code-readability.html)
 
 Features:
   * Easy Regex management
