@@ -110,12 +110,14 @@ fun whitespace()
 fun match( aggr: () -> Unit = {} )
 fun nocapture( aggr: () -> Unit )
 fun capture( aggr: () -> Unit )
-fun compile(): Regex
 
 fun expression( 
     entity: ExpressionBuilder.() -> Unit,
     options: Set<RegexOption> = emptySet()
 ): Expression?
+
+// In addition to the functions above, 
+// you can access every function of Expression class.
 ```
 
 ---
