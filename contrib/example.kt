@@ -2,7 +2,7 @@
 * The MIT License (MIT)
 *
 * Product:      Kotlin Expression Builder (DSL)
-* Description:  A fairly decent expression (Regex) builder written in Kotlin.
+* Description:  A decent expression (Regex) builder written in Kotlin.
 *
 * Copyright (c) 2017 Steven Agyekum <agyekum@posteo.de>
 *

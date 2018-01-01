@@ -7,7 +7,7 @@
 
 <img src="http://i.imgur.com/I0DES9A.png" align="right"/>
 
-A fairly decent expression class and builder (DSL), written in Kotlin.
+A decent expression class and builder (DSL), written in Kotlin.
 
 This package will assist you in writing and managing your regular expressions (Regex).<br>
 
