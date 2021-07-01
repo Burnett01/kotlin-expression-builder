@@ -61,17 +61,17 @@ class Expression(internal val op: Set<RegexOption> = emptySet()) {
     /**
      * @function: setStart
      */
-    fun markStart() = append("^")
+    fun markStart(): StringBuilder = append("^")
 
     /**
      * @function: setEnd
      */
-    fun markEnd() = append("$")
+    fun markEnd(): StringBuilder = append("$")
 
     /**
      * @function: setOr
      */
-    fun markOr() = append("|")
+    fun markOr(): StringBuilder = append("|")
 
     /**
      * @function: quantity
@@ -116,39 +116,39 @@ class Expression(internal val op: Set<RegexOption> = emptySet()) {
      * @function: setChar
      * @param {Char} char | Character
      */
-    fun setChar(char: Char) = append(char.toString())
+    fun setChar(char: Char): StringBuilder = append(char.toString())
 
     /**
      * @function: setChar
      * @param {String} str | String
      */
-    fun setString(str: String) = append(str)
+    fun setString(str: String): StringBuilder = append(str)
 
     /**
      * @function: setLiteral
      * @param {Char} lit | Literal
      */
-    fun setLiteral(lit: Char) = append("\\$lit")
+    fun setLiteral(lit: Char): StringBuilder = append("\\$lit")
 
     /**
      * @function: setDigit
      */
-    fun setDigit() = append("\\d")
+    fun setDigit(): StringBuilder = append("\\d")
 
     /**
      * @function: setWord
      */
-    fun setWord() = append("\\w")
+    fun setWord(): StringBuilder = append("\\w")
 
     /**
      * @function: startMatch
      */
-    fun startMatch() = append("[")
+    fun startMatch(): StringBuilder = append("[")
 
     /**
      * @function: endMatch
      */
-    fun endMatch() = append("]")
+    fun endMatch(): StringBuilder = append("]")
 
     /**
      * @function: startGroup
@@ -164,12 +164,12 @@ class Expression(internal val op: Set<RegexOption> = emptySet()) {
     /**
      * @function: endGroup
      */
-    fun endGroup() = append(")")
+    fun endGroup(): StringBuilder = append(")")
 
     /**
      * @function: debug
      */
-    fun debug() = println("$this | Regex: ${result}")
+    fun debug() = println("$this | Regex: $result")
     
     /**
      * @function: compile
