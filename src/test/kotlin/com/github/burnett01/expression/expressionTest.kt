@@ -24,8 +24,14 @@
 
 package com.github.burnett01.expression
 
-import io.kotlintest.matchers.*
-import io.kotlintest.specs.StringSpec
+import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.collections.beEmpty
+import io.kotest.matchers.should
+import io.kotest.matchers.string.endWith
+import io.kotest.matchers.string.include
+import io.kotest.matchers.string.startWith
+import io.kotest.matchers.types.beOfType
+import java.lang.StringBuilder
 
 class ExpressionTest : StringSpec({
 
@@ -38,7 +44,7 @@ class ExpressionTest : StringSpec({
     }
 
     "expression.result should be of type <StringBuilder>" {
-        expression.result should beOfType<StringBuilder>()
+        expression.result should beOfType(StringBuilder::class)
     }
 
     "expression.markStart should mark start position" {
@@ -46,9 +52,14 @@ class ExpressionTest : StringSpec({
         expression.result.toString() should startWith("^")
     }
 
-    "expression.markEnd should mark end position" {
-        expression.markEnd()
-        expression.result.toString() should endWith("$")
+    "expression.quantity should add quantifier 1 = '?'" {
+        expression.quantity(Q.ZERO_OR_ONE)
+        expression.result.toString() should endWith("?")
+    }
+    
+    "expression.quantity should add quantifier 3 = '+'" {
+        expression.quantity(Q.ONE_OR_MORE)
+        expression.result.toString() should endWith("+")
     }
 
     "expression.markOr should mark 'or' position" {
@@ -56,39 +67,9 @@ class ExpressionTest : StringSpec({
         expression.result.toString() should endWith("|")
     }
 
-    "expression.quantity should add quantifier 1 = '?'" {
-        expression.quantity(Q.ZERO_OR_ONE)
-        expression.result.toString() should endWith("?")
-    }
-
-    "expression.quantity should add quantifier 2 = '*'" {
-        expression.quantity(Q.ZERO_OR_MORE)
-        expression.result.toString() should endWith("*")
-    }
-
-    "expression.quantity should add quantifier 3 = '+'" {
-        expression.quantity(Q.ONE_OR_MORE)
-        expression.result.toString() should endWith("+")
-    }
-
     "expression.range should add range from 0 to 9 | delim = '-'" {
         expression.range(0, 9)
         expression.result.toString() should endWith("[0-9]")
-    }
-
-    "expression.range should add range from 0 to 9 | delim = ','" {
-        expression.range(0, 9, ',')
-        expression.result.toString() should endWith("{0,9}")
-    }
-    
-    "expression.range should add range from A to z | delim = '-'" {
-        expression.range('A', 'z')
-        expression.result.toString() should endWith("A-z")
-    }
-
-    "expression.exact should add exact 9" {
-        expression.exact(9)
-        expression.result.toString() should endWith("{9,9}")
     }
 
     "expression.setChar should add a character (Char) = 'A'" {
@@ -96,14 +77,35 @@ class ExpressionTest : StringSpec({
         expression.result.toString() should endWith("A")
     }
 
+    "expression.exact should add exact 9" {
+        expression.exact(9)
+        expression.result.toString() should endWith("{9,9}")
+    }
+
     "expression.setString should add a string (setString) = TestString" {
         expression.setString("TestString")
         expression.result.toString() should endWith("TestString")
     }
 
+
+    "expression.range should add range from 0 to 9 | delim = ','" {
+        expression.range(0, 9, ',')
+        expression.result.toString() should endWith("{0,9}")
+    }
+    
     "expression.setLiteral should add a literal (Char) = '\\%'" {
         expression.setLiteral('%')
         expression.result.toString() should endWith("\\%")
+    }
+    
+    "expression.startMatch should start match class = '['" {
+        expression.startMatch()
+        expression.result.toString() should endWith("[")
+    }
+
+    "expression.range should add range from A to z | delim = '-'" {
+        expression.range('A', 'z')
+        expression.result.toString() should endWith("A-z")
     }
 
     "expression.setDigit should add digit class = '\\d'" {
@@ -115,22 +117,22 @@ class ExpressionTest : StringSpec({
         expression.setWord()
         expression.result.toString() should endWith("\\w")
     }
-
-    "expression.startMatch should start match class = '['" {
-        expression.startMatch()
-        expression.result.toString() should endWith("[")
-    }
-
+    
     "expression.endMatch should end match class = ']'" {
         expression.endMatch()
         expression.result.toString() should endWith("]")
+    }
+
+    "expression.quantity should add quantifier 2 = '*'" {
+        expression.quantity(Q.ZERO_OR_MORE)
+        expression.result.toString() should endWith("*")
     }
 
     "expression.startGroup should start capture group (0) = '('" {
         expression.startGroup(0)
         expression.result.toString() should endWith("(")
     }
-
+    
     "expression.endGroup should end capture group (0) = ')'" {
         expression.endGroup()
         expression.result.toString() should endWith(")")
@@ -146,13 +148,18 @@ class ExpressionTest : StringSpec({
         expression.result.toString() should endWith(")")
     }
 
+    "expression.markEnd should mark end position" {
+        expression.markEnd()
+        expression.result.toString() should endWith("$")
+    }
+
     "expression.compile should be of type <Regex>" {
-        expression.compile() should beOfType<Regex>()
+        expression.compile() should beOfType(Regex::class)
     }
 
     /*         RUNTIME TESTS          */
 
-    val date: String = "20.05.2017"
+    val date = "20.05.2017"
 
     val origPatternA = "(\\d{2,2}.\\d{2,2}.\\d{4,4})"
     val origValA = Regex(origPatternA).find(date)!!.value
@@ -172,19 +179,19 @@ class ExpressionTest : StringSpec({
 
     "runtimeExprA.compile should compile and return pattern = '$origPatternA'" {
         runtimeExprA.compile()
-            .pattern.toString() should include(origPatternA)
+            .pattern should include(origPatternA)
     }
 
     "runtimeExprA.compile.matchEntire().value should return origValA = '$date'" {
         runtimeExprA.compile()
-            .matchEntire(date)?.value.toString() should include(origValA.toString())
+            .matchEntire(date)?.value.toString() should include(origValA)
     }
 
     /*         RegexOption TESTS (IGNORE_CASE)          */
 
     val opts: Set<RegexOption> = setOf( RegexOption.IGNORE_CASE )
 
-    val text: String = "CAtCh Me!"
+    val text = "CAtCh Me!"
 
     val origPatternB = "(Catch me\\!)"
     val origValB = Regex(origPatternB, opts).find(text)!!.value
@@ -198,12 +205,12 @@ class ExpressionTest : StringSpec({
 
     "runtimeExprB.compile should compile and return pattern = '$origPatternB'" {
         runtimeExprB.compile()
-            .pattern.toString() should include(origPatternB)
+            .pattern should include(origPatternB)
     }
 
     "runtimeExprB.compile.matchEntire().value should return origValB = '$text'" {
         runtimeExprB.compile()
-            .matchEntire(text)?.value.toString() should include(origValB.toString())
+            .matchEntire(text)?.value.toString() should include(origValB)
     }
 
 })

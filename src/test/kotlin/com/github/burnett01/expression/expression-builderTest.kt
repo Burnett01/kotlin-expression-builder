@@ -24,9 +24,10 @@
 
 package com.github.burnett01.expression
 
-import io.kotlintest.matchers.*
-import io.kotlintest.specs.StringSpec
-
+import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.should
+import io.kotest.matchers.string.include
+import io.kotest.matchers.string.startWith
 
 class ExpressionBuilderTest : StringSpec({
 
