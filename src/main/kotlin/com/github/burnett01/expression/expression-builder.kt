@@ -33,7 +33,7 @@ class ExpressionBuilder() {
     /**
      * @property: opts | Regex options
      */
-    internal var opts: Set<RegexOption> = emptySet()
+    private var opts: Set<RegexOption> = emptySet()
 
     /**
      * @constructor
@@ -51,7 +51,7 @@ class ExpressionBuilder() {
     /**
      * @property: expression | Final expression
      */
-    internal val expression: Expression? by lazy {
+    private val expression: Expression? by lazy {
         Expression(opts)
     }
 
