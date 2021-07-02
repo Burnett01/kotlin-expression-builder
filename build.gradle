@@ -1,16 +1,24 @@
 buildscript {
     ext.kotlin_version = '1.5.20'
-
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
+    ext.kotest_version = '4.6.0'
 }
 
-apply plugin: 'kotlin'
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version "$kotlin_version"
+    id 'maven-publish'
+}
+
+group = 'com.github.burnett01'
+version = '1.0.0'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
 
 sourceSets {
     main.kotlin.srcDirs += 'src/main/kotlin/com/github/burnett01/expression'
@@ -23,12 +31,13 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    testImplementation 'io.kotest:kotest-runner-junit5:4.6.0'
+    testImplementation "io.kotest:kotest-runner-junit5:$kotest_version"
 }
 
 // Credits: https://github.com/jitpack/gradle-simple/blob/master/build.gradle
 
-task sourcesJar(type: Jar, dependsOn: classes) {
+task sourcesJar(type: Jar) {
+    dependsOn(classes)
     from sourceSets.main.allSource
 }
 
