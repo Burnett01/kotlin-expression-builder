@@ -2,6 +2,7 @@
 # kotlin-expression-builder
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Burnett01/paypal-basket/master/LICENSE) 
+[![](https://jitci.com/gh/Burnett01/kotlin-expression-builder/svg)](https://jitci.com/gh/Burnett01/kotlin-expression-builder)
 [![Build Status](https://travis-ci.com/Burnett01/kotlin-expression-builder.svg?branch=master)](https://travis-ci.com/Burnett01/kotlin-expression-builder) [![](https://jitpack.io/v/burnett01/kotlin-expression-builder.svg)](https://jitpack.io/#burnett01/kotlin-expression-builder)
 
 
