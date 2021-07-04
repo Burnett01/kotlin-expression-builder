@@ -8,16 +8,16 @@
 
 <img src="http://i.imgur.com/I0DES9A.png" align="right"/>
 
-A decent expression class and builder (DSL), written in Kotlin.
+An expression class and builder (DSL), written in Kotlin.
 
 This package will assist you in writing and managing your regular expressions (Regex).<br>
 
-I'll be using this package in my upcoming [HAFAS-parser](https://github.com/Burnett01/hafas-parser) project, in order to simplify very complex regular expressions. Read more about it [on my blog](https://burnett01.blogspot.de/2017/06/developers-should-ease-code-readability.html)
+I've been using this package in my [HAFAS-parser](https://github.com/Burnett01/hafas-parser) project, in order to simplify very complex regular expressions. Read more about it [on my blog](https://burnett01.blogspot.de/2017/06/developers-should-ease-code-readability.html)
 
 Features:
   * Easy Regex management
-  * Usable as pure class (Expression)
-  * Usable as builder (ExpressionBuilder)
+  * Available as a pure class (Expression)
+  * Available as a builder (ExpressionBuilder)
   * Unit Tests
 
 ---
@@ -33,6 +33,7 @@ Features:
   * [Gradle](#gradle)
 * [Unit-Tests](#unit-tests)
   * [Gradle](#gradle-1)
+* [CI](#ci)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -230,7 +231,7 @@ allprojects {
 }
 
 dependencies {
-    compile 'com.github.burnett01:kotlin-expression-builder:0.8'
+    compile 'com.github.burnett01:kotlin-expression-builder:1.0'
 }
 ```
 
@@ -247,7 +248,7 @@ Maven dependency:
 <dependency>
     <groupId>com.github.Burnett01</groupId>
     <artifactId>kotlin-expression-builder</artifactId>
-    <version>0.8</version>
+    <version>1.0</version>
 </dependency>
 ```
 
@@ -266,7 +267,7 @@ Check [here](https://jitpack.io/#Burnett01/kotlin-expression-builder/) for more.
 
 ## Unit-Tests
 
-The testing-framework used by this package is [kotlintest](https://github.com/kotlintest/kotlintest/).
+The testing-framework used by this package is [kotest](https://github.com/kotest/kotest).
 
 Various tests are performed to make sure this package runs as smoothly as possible.
 
@@ -290,6 +291,12 @@ Output:
 ### Gradle
 
 ```gradle test```
+
+---
+
+## CI
+
+Travis-CI and jitCI
 
 ---
 
