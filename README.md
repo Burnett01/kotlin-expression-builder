@@ -225,13 +225,12 @@ Gradle dependency:
 ```kotlin
 allprojects {
     repositories {
-        ...
         maven { url 'https://jitpack.io' }
     }
 }
 
 dependencies {
-    compile 'com.github.burnett01:kotlin-expression-builder:1.0'
+    compile 'com.github.burnett01:kotlin-expression-builder:1.0.0'
 }
 ```
 
@@ -248,7 +247,7 @@ Maven dependency:
 <dependency>
     <groupId>com.github.Burnett01</groupId>
     <artifactId>kotlin-expression-builder</artifactId>
-    <version>1.0</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 

@@ -1,7 +1,7 @@
 
 ## Changelog
 
-**1.0**
+**1.0.0**
 
 - Updated kotlin version to 1.5.20 and gradle 7.1
 
