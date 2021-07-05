@@ -78,7 +78,7 @@ jobs:
 
     # Performs static analysis using Detekt
     - name: Run Detekt
-      continue-on-error: true
+      continue-on-error: false
       run: |
         detekt --input ${{ github.workspace }} --config ${{ github.workspace }}/detekt.yml --build-upon-default-config --excludes '**/test/**' --report sarif:${{ github.workspace }}/detekt.sarif.json
 
