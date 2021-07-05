@@ -1,0 +1,8 @@
+config:
+  validation: true
+  warningsAsErrors: false
+  excludes: ['**/test/**']
+
+complexity:
+  TooManyFunctions:
+    thresholdInFiles: 20
