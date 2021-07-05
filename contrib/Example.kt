@@ -22,7 +22,7 @@
 *
 */
 
-import com.github.burnett01.expression.Expression
+import com.github.burnett01.expression.ExpressionBuilder
 
 class Example {
 
