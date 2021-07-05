@@ -3,5 +3,12 @@ config:
   warningsAsErrors: false
 
 complexity:
+  active: true
   TooManyFunctions:
+    active: true
     thresholdInFiles: 20
+    thresholdInClasses: 20
+    thresholdInInterfaces: 20
+    thresholdInObjects: 20
+    thresholdInEnums: 20
+    
