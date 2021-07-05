@@ -1,7 +1,8 @@
 config:
   validation: true
   warningsAsErrors: false
-  excludes: ['**/test/**']
+  excludes:
+    - '**/test/**'
 
 complexity:
   TooManyFunctions:
