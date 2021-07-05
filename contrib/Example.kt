@@ -24,7 +24,7 @@
 
 import com.github.burnett01.expression.*
 
-class main {
+class Example {
 
     val date: String = "20.05.2017"
     val origExpr = Regex("(\\d{2}.\\d{2}.\\d{4})")
@@ -43,5 +43,4 @@ class main {
     println(myExpr!!.compile().find(date)?.value)
 
     myExpr.debug()
-
 }
