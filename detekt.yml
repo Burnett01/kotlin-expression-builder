@@ -23,3 +23,6 @@ style:
       - '2'
       - '3'
       - '4'
+  MaxLineLength:
+    active: true
+    excludeCommentStatements: true
