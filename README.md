@@ -279,14 +279,6 @@ Various tests are performed to make sure this package runs as smoothly as possib
 
     `3 tests` | [Source](../master/src/test/kotlin/com/github/burnett01/expression/expression-builderTest.kt)
 
-Output:   
-
-<img src="http://i.imgur.com/NDHTv1p.png" />
-
-<img src="http://i.imgur.com/cDUo7Au.png" />
-
-<img src="http://i.imgur.com/UcOORgP.png" />
-
 ### Gradle
 
 ```gradle test```
@@ -295,7 +287,7 @@ Output:
 
 ## CI
 
-Travis-CI and jitCI
+Travis-CI, jitCI and detekt (code QL)
 
 ---
 
