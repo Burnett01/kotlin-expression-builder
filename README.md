@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Burnett01/paypal-basket/master/LICENSE) 
 [![](https://jitci.com/gh/Burnett01/kotlin-expression-builder/svg)](https://jitci.com/gh/Burnett01/kotlin-expression-builder)
 [![Build Status](https://travis-ci.com/Burnett01/kotlin-expression-builder.svg?branch=master)](https://travis-ci.com/Burnett01/kotlin-expression-builder) [![](https://jitpack.io/v/burnett01/kotlin-expression-builder.svg)](https://jitpack.io/#burnett01/kotlin-expression-builder)
-
+[![Scan with Detekt](https://github.com/Burnett01/kotlin-expression-builder/actions/workflows/detekt-analysis.yml/badge.svg)](https://github.com/Burnett01/kotlin-expression-builder/actions/workflows/detekt-analysis.yml)
 
 <img src="http://i.imgur.com/I0DES9A.png" align="right"/>
 
