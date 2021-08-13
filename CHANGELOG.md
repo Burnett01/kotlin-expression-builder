@@ -1,6 +1,12 @@
 
 ## Changelog
 
+**1.1.0**
+
+- Fixed regression in task sourcesJar from 1.0.0
+
+- Expression & ExpressionBuilder classes are now open (allows for inheritance)
+
 **1.0.0**
 
 - Updated kotlin version to 1.5.20 and gradle 7.1
