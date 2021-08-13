@@ -45,7 +45,7 @@ enum class Q {
  * @class: Expression
  * @param: {Set<RegexOption>} op | Regex options (optional)
  */
-class Expression(internal val op: Set<RegexOption> = emptySet()) {
+open class Expression(internal val op: Set<RegexOption> = emptySet()) {
 
     /**
      * @property: result | Final expression

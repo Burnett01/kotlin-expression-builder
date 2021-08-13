@@ -28,7 +28,7 @@ package com.github.burnett01.expression
 /**
  * @class: ExpressionBuilder
  */
-class ExpressionBuilder() {
+open class ExpressionBuilder() {
 
     /**
      * @property: opts | Regex options
