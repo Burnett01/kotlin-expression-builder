@@ -36,8 +36,8 @@ dependencies {
 
 // Credits: https://github.com/jitpack/gradle-simple/blob/master/build.gradle
 
-task sourcesJar(type: Jar) {
-    dependsOn(classes)
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
     from sourceSets.main.allSource
 }
 
