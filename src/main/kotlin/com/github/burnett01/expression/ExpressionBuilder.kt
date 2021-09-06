@@ -51,7 +51,7 @@ open class ExpressionBuilder() {
     /**
      * @property: expression | Final expression
      */
-    private val expression: Expression? by lazy {
+    protected val expression: Expression? by lazy {
         Expression(opts)
     }
 
