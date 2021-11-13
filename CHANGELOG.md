@@ -1,6 +1,10 @@
 
 ## Changelog
 
+**1.2.0**
+
+- ExpressionBuilder class: change expression property visibility to protected (so other classes can access it)
+
 **1.1.0**
 
 - Fixed regression in task sourcesJar from 1.0.0

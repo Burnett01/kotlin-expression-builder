@@ -214,8 +214,6 @@ class main {
 }
 ```
 
-To be continued...
-
 ---
 
 ## Setup / Install
@@ -230,7 +228,7 @@ allprojects {
 }
 
 dependencies {
-    compile 'com.github.burnett01:kotlin-expression-builder:1.1.0'
+    compile 'com.github.burnett01:kotlin-expression-builder:1.2.0'
 }
 ```
 
@@ -247,7 +245,7 @@ Maven dependency:
 <dependency>
     <groupId>com.github.Burnett01</groupId>
     <artifactId>kotlin-expression-builder</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
@@ -260,7 +258,7 @@ Check [here](https://jitpack.io/#Burnett01/kotlin-expression-builder/) for more.
 
 ### Gradle
 
-```gradle build```
+```gradlew build```
 
 ---
 
@@ -281,7 +279,7 @@ Various tests are performed to make sure this package runs as smoothly as possib
 
 ### Gradle
 
-```gradle test```
+```gradlew test```
 
 ---
 
