@@ -214,8 +214,6 @@ class main {
 }
 ```
 
-To be continued...
-
 ---
 
 ## Setup / Install
@@ -260,7 +258,7 @@ Check [here](https://jitpack.io/#Burnett01/kotlin-expression-builder/) for more.
 
 ### Gradle
 
-```gradle build```
+```gradlew build```
 
 ---
 
@@ -281,7 +279,7 @@ Various tests are performed to make sure this package runs as smoothly as possib
 
 ### Gradle
 
-```gradle test```
+```gradlew test```
 
 ---
 
