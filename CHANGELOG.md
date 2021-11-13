@@ -4,6 +4,7 @@
 **1.2.0**
 
 - ExpressionBuilder class: change expression property visibility to protected (so other classes can access it)
+- Upgraded Gradle from 7.1 to 7.3
 
 **1.1.0**
 
