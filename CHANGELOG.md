@@ -1,6 +1,12 @@
 
 ## Changelog
 
+**1.2.1**
+
+- Updated kotlin version to 1.6.10
+- Updated kotest version to 5.0.3
+- Updated Gradle Wrapper from 7.3 to 7.3.3
+
 **1.2.0**
 
 - ExpressionBuilder class: change expression property visibility to protected (so other classes can access it)
