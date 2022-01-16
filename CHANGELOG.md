@@ -1,6 +1,10 @@
 
 ## Changelog
 
+**1.2.2**
+
+- Updated copyright date (2022)
+
 **1.2.1**
 
 - Updated kotlin version to 1.6.10

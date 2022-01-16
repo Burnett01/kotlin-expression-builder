@@ -228,7 +228,7 @@ allprojects {
 }
 
 dependencies {
-    compile 'com.github.burnett01:kotlin-expression-builder:1.2.1'
+    compile 'com.github.burnett01:kotlin-expression-builder:1.2.2'
 }
 ```
 
@@ -245,7 +245,7 @@ Maven dependency:
 <dependency>
     <groupId>com.github.Burnett01</groupId>
     <artifactId>kotlin-expression-builder</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
 </dependency>
 ```
 
