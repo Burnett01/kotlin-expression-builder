@@ -1,6 +1,6 @@
 buildscript {
     ext.kotlin_version = '1.6.10'
-    ext.kotest_version = '5.0.3'
+    ext.kotest_version = '5.5.3'
 }
 
 plugins {
